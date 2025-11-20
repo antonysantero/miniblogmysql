@@ -7,6 +7,7 @@ const mysql = require('mysql');
 var session = require('client-sessions');
 
 /* test webhook 15 */  
+let verisonnum = "1.5";
 
 
 app.use(express.urlencoded({ extended: true }));   
@@ -127,7 +128,7 @@ app.post('/new',(req, res) => {
 app.get('/',(req, res) => {
   connection.query('SELECT * FROM articles', (err, results) => {
     if (err)return;
-    res.render('index.ejs',{articles:results});
+    res.render('index.ejs',{articles:results,version:verisonnum});
   });
 });
 
